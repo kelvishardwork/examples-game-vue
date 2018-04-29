@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="pt-br" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>V FOR </title>
+    <style>
+        .active {
+            background: green;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <h1>{{title}}</h1>
+    <ul>
+        <li :class="{active : task.completed}"
+            v-for="task in tasks">
+            {{index}} - {{task.id}} - {{task.name | toUpperCase}} - {{task.name | toLowerCase}}
+        </li>
+    </ul>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    /*Filtro global para qualquer parte do projeto*/
+    Vue.filter('toLowerCase', function (val) {
+        return val.toLowerCase()
+    })
+
+    new Vue({
+        el: '#app',
+        data: {
+            title: 'Lista de Tarefas',
+            tasks: [
+                {id: 1, name: 'Lavar Roupa', completed: false},
+                {id: 2, name: 'Lavar Carro', completed: true},
+                {id: 3, name: 'Lavar Banheiro', completed: false},
+                {id: 4, name: 'Lavar Pia', completed: true}
+            ]
+        },
+        filters: {
+            /*Filtro especifico preso a instancia do vue*/
+            toUpperCase(val) {
+                return val.toUpperCase()
+            }
+        }
+    });
+</script>
+</body>
+</html>

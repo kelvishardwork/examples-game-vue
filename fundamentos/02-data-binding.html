@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Data Binding</title>
+</head>
+<body>
+<div id="app">
+    <h1>{{title}}</h1>
+    <p>{{description}}</p>
+    <p>{{isActive === true ? 'Ativo':'Nao Ativo'}}</p>
+    <a :href="url" :title="textoAcademy">{{ textoAcademy}}</a>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            title: 'Meu Titulo',
+            description: 'Minha Descricao',
+            isActive: true,
+            url: 'https://vuejs.org/v2/guide/',
+            textoAcademy: 'Academy'
+        }
+    });
+</script>
+</body>
+</html>

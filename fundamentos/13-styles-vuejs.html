@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="pt-br" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exemplo Style Vue</title>
+    <style>
+        .ativa {
+            background: green;
+        }
+
+        .nao-ativado {
+            background: red;
+        }
+
+        .default {
+            color: yellow;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <!--Se quem possuem a classe será afetada. A variavel de isActive
+    recebe o valor negado de isActive-->
+    <button @click="isActive = !isActive">Alterar Class</button>
+
+    <!--Se isActive for verdadeiro entao coloca a classe active-->
+    <div :class="{ativa : isActive}">Exemplo Style 1</div>
+    <div :class="isActive ? 'ativa' : 'nao-ativado'">Exemplo Style 2</div>
+    <div class="default" :class="{ativa : isActive}">Exemplo Style 3</div>
+    <div :class="['default',isActive ? 'ativa' : 'nao-ativado']">Exemplo Style 3/4</div>
+    <div :class="classObject">Exemplo Style 5</div>
+    <div :style="{display: ['-webkit-flex','-moz-flex','flex']}">Exemplo Style 6</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            isActive: true,
+            classObject: {
+                ativa: true,
+                'text-red': true,
+                'color-white': true
+            }
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pt-br" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>V Once</title>
+</head>
+<body>
+<div id="app">
+    <input type="text"
+           @keyup.tab="changeValue"
+           @keyup.up="changeValueTwo"
+           @keyup="getCodeKey"
+    >
+    {{valueText}}
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            valueText: ''
+        },
+        methods: {
+            changeValue(event) {
+                this.valueText = event.target.value
+            },
+            changeValueTwo(){
+                alert('changeValueTwo')
+            },
+            getCodeKey(event){
+                console.log(event.keyCode)
+            }
+        }
+    });
+</script>
+</body>
+</html>

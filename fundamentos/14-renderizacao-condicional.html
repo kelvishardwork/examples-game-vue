@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="pt-br" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exemplo Renderização condicional</title>
+</head>
+<body>
+<div id="app">
+    <div v-if="number < 12">{{textExemplo}}</div>
+    <div v-else-if="number == 12">É igual</div>
+    <div v-else>É maior</div>
+    <div v-if="isActive">Ativo</div>
+    <div v-else>Não Ativo</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            number: 18,
+            textExemplo: 'Texto Databind',
+            isActive: true
+        }
+    });
+</script>
+</body>
+</html>

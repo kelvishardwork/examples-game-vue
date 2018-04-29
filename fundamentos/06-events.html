@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="pt-br" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>V Once</title>
+</head>
+<body>
+<div id="app">
+    <input type="text" v-on:keyup="count++">
+    <hr>
+    <button @click="count++">Incrementar</button>
+    {{ count }}
+    <button @click="count--">Descrementar</button>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            count: 0
+        }
+    });
+</script>
+</body>
+</html>

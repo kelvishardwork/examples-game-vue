@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="pt-br" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Observadores</title>
+</head>
+<body>
+<div id="app">
+    <button @click="count++">Aumentar</button>
+    <input type="text" v-model="count">
+    {{count}}
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            count: 0
+        },
+        watch: {
+            count: function (value) {
+                var vm = this
+                setTimeout(function () {
+                    vm.count = 0
+                }, 4000)
+            }
+        }
+    });
+</script>
+</body>
+</html>

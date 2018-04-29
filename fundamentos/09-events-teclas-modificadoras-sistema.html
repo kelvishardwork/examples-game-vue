@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="pt-br" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>V Once</title>
+</head>
+<body>
+<div id="app">
+    <div @click.ctrl.63="testEventCC">Clique exatamente CTRL + C !!!</div>
+    <div @click.ctrl.exact="testEventCtrl">Clique exatamente CTRL!!!</div>
+    <div @click.ctrl="testEventCtrl">Clique aqui CTRL!!!</div>
+    <div @click.alt="testEventAlt">Clique aqui Alt!!!</div>
+    <div @click.shift="testEventShift">Clique aqui Shift!!!</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            valueText: ''
+        },
+        methods: {
+            testEventCtrl(){
+                alert('Apertou ctrl');
+            },
+            testEventAlt(){
+                alert('Apertou alt');
+            },
+            testEventShift(){
+                alert('Apertou shift');
+            },
+            testEventCC(){
+                alert('Apertou CTRL + C');
+            }
+        }
+    });
+</script>
+</body>
+</html>
